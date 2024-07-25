@@ -61,14 +61,6 @@ export default {
             localProduct: { ...this.currentProduct }
         };
     },
-    watch: {
-        showDialog(newVal) {
-            this.dialogVisible = newVal;
-        },
-        currentProduct(newVal) {
-            this.localProduct = { ...newVal };
-        }
-    },
     methods: {
         dialogEnabled(){
             this.dialogVisible = false;
