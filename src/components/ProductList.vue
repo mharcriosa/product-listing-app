@@ -143,8 +143,7 @@
                     const response = await axios.get("https://fakestoreapi.com/products");
                     this.products = response.data
                         .map((product) => ({
-                            ...product,
-                            showFullDescription: false,
+                            ...product
                         }))
                         .filter((product) => product.title.toLowerCase().includes(this.searchQuery.toLowerCase()));
                 } catch (error) {
@@ -190,7 +189,7 @@
                     }
                     this.fetchProducts();
                     this.showDialog = false;
-                    this.currentProduct = { id: null, title: "", price: "", description: "", image: "" }; // Reset form
+                    this.$refs.form.reset()// Reset form
                 } catch (error) {
                     console.error(error);
                 }
@@ -235,14 +234,11 @@
             },
             // Open dialog for adding a new product
             openAddProductDialog() {
-                this.currentProduct = { id: null, title: "", price: "", description: "", image: "" }; // Reset form
+                this.$refs.form.reset(); // Reset form; // Reset form
                 this.editMode = false;
                 this.showDialog = true;
             },
-            // Toggle full description view (not currently used in template)
-            toggleDescription(product) {
-                product.showFullDescription = !product.showFullDescription;
-            },
+
         },
         mounted() {
             this.fetchProducts(); // Fetch products when component is mounted
@@ -260,20 +256,16 @@
     .product-img {
         height: 200px;
     }
-
     .product-description {
         flex: 1;
         overflow: hidden;
     }
-
     .product-card .v-card-subtitle {
         border-top: 1px solid #e0e0e0;
     }
-
     .product-card .v-icon {
         font-size: 1.25rem;
     }
-
     .red-outline-btn {
         background-color: rgba(208, 1, 27, 0.08);
         border: 1px solid #d0011b;
