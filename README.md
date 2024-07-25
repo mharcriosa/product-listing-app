@@ -15,7 +15,7 @@ This is a Vue.js web application that displays a list of products using the Fake
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/mharcriosa/product-listing-app.git
 
 2. Navigate into the project directory:
 
